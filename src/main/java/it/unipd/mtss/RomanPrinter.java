@@ -12,11 +12,19 @@ public class RomanPrinter {
     }
 
     private static String printAsciiArt(String romanNumber) {
-        if (romanNumber.length() == 1) {
-            String[] asciiChar = getAsciiLetter(romanNumber.charAt(0));
-            return String.join("\n", asciiChar) + "\n";
+        String result = "";
+        int altezzaFont = 6;
+
+        for (int riga = 0; riga < altezzaFont; riga++) {
+            for (int i = 0; i < romanNumber.length(); i++) {
+                String[] asciiChar = getAsciiLetter(romanNumber.charAt(i));
+                result += asciiChar[riga];
+            }
+
+            result += "\n";
         }
-        return "";
+        
+        return result;
     }
 
     private static String[] getAsciiLetter(char letter) {

@@ -148,11 +148,73 @@ public class RomanPrinterTest {
         assertEquals(expected, actual);
     }
 
+    @Test
+    public void testPrintNumberFourteenToAsciiXIV() {
+        // Arrange: 14 = XIV (mischia una decina, un'unità e una sottrazione)
+        int number = 14;
+        String expected = 
+            "__   __  _____  __      __ \n" +
+            "\\ \\ / / |_   _| \\ \\    / / \n" +
+            " \\ V /    | |    \\ \\  / /  \n" +
+            "  > <     | |     \\ \\/ /   \n" +
+            " / . \\   _| |_     \\  /    \n" +
+            "/_/ \\_\\ |_____|     \\/     \n";
+            
+        // Act
+        String actual = RomanPrinter.print(number);
+        
+        // Assert
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testPrintNumberSixHundredFiftyToAsciiDCL() {
+        // Arrange: 650 = DCL (sequenza in discesa di centinaia e decine)
+        int number = 650;
+        String expected = 
+            " _____     _____   _       \n" +
+            "|  __ \\   / ____| | |      \n" +
+            "| |  | | | |      | |      \n" +
+            "| |  | | | |      | |      \n" +
+            "| |__| | | |____  | |____  \n" +
+            "|_____/   \\_____| |______| \n";
+            
+        // Act
+        String actual = RomanPrinter.print(number);
+        
+        // Assert
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testPrintNumberNineHundredToAsciiCM() {
+        // Arrange: 900 = CM (regola di sottrazione sui numeri grossi)
+        int number = 900;
+        String expected = 
+            "  _____   __  __  \n" +
+            " / ____| |  \\/  | \n" +
+            "| |      | \\  / | \n" +
+            "| |      | |\\/| | \n" +
+            "| |____  | |  | | \n" +
+            " \\_____| |_|  |_| \n";
+            
+        // Act
+        String actual = RomanPrinter.print(number);
+        
+        // Assert
+        assertEquals(expected, actual);
+    }
     
     //test eccezione
     @Test(expected = IllegalArgumentException.class)
     public void testPrintZeroThrowsException() {
         // Act
         RomanPrinter.print(0);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testPrintAboveMaxThrowsException() {
+        // Act
+        RomanPrinter.print(1001);
     }
 }
