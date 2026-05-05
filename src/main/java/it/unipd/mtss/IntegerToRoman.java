@@ -7,62 +7,17 @@ package it.unipd.mtss;
 
 public class IntegerToRoman {
 
-    public static String convert(int number) {
+    public static String convert(int numero) {
+        int[] valori = {500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
+        String[] simboli = {"D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
+        
         String roman = "";
-
-        while (number >= 500) {
-            roman += "D";
-            number -= 500;
-        }
         
-        while (number >= 400) {
-            roman += "CD";
-            number -= 400;
-        }
-
-        while (number >= 100) {
-            roman += "C";
-            number -= 100;
-        }
-        
-        while (number >= 90) {
-            roman += "XC";
-            number -= 90;
-        }
-
-        while (number >= 50) {
-            roman += "L";
-            number -= 50;
-        }
-
-        while (number >= 40) {
-            roman += "XL";
-            number -= 40;
-        }
-        
-        while (number >= 10) {
-            roman += "X";
-            number -= 10;
-        }
-        
-        while (number >= 9) {
-            roman += "IX";
-            number -= 9;
-        }
-        
-        while (number >= 5) {
-            roman += "V";
-            number -= 5;
-        }
-        
-        while (number >= 4) {
-            roman += "IV";
-            number -= 4;
-        }
-        
-        while (number >= 1) {
-            roman += "I";
-            number -= 1;
+        for (int i = 0; i < valori.length; i++) {
+            while (numero >= valori[i]) {
+                roman += simboli[i];
+                numero -= valori[i];
+            }
         }
         
         return roman;
