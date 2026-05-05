@@ -9,7 +9,9 @@ public class IntegerToRoman {
 
     public static String convert(int numero) {
         int[] valori = {500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
-        String[] simboli = {"D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
+        String[] simboli = {
+            "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"
+        };
         
         String roman = "";
         
